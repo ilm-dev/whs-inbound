@@ -3,9 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './Menu/menu.component';
-import { InicioComponent } from './Inicio/inicio.component';
-import { NotfoundComponent } from './NotFound/notfound.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
@@ -17,13 +14,23 @@ import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon'
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+import { MenuComponent } from './Menu/menu.component';
+import { InicioComponent } from './Inicio/inicio.component';
+import { NotfoundComponent } from './NotFound/notfound.component';
+import { EntrancesMaterialComponent } from './Group1/entrances-material.component';
+import { HistorialComponent } from './Historial/historial.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     InicioComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    EntrancesMaterialComponent,
+    HistorialComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,9 @@ import { MatIconModule } from '@angular/material/icon'
     MatProgressSpinnerModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   bootstrap: [AppComponent]
 })
