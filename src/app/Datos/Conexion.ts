@@ -8,9 +8,9 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 export class ApiRuta{
   constructor(private http:HttpClient){}
 
-    //serverUrl="http://10.35.64.27:9080/";
+    serverUrl="http://10.35.64.27:9080/";
 
-    serverUrl="https://localhost:44352/";
+    //serverUrl="https://localhost:44352/";
     //serverUrl="http://localhost:8080/";
 
     headers= new HttpHeaders()
@@ -23,6 +23,7 @@ export class ApiRuta{
     api(){
         return this.serverUrl;
     }
+
     messaggeError(data: any) {
         Swal.fire({
           position: 'center',
