@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table'  
 
 import { MenuComponent } from './Menu/menu.component';
 import { InicioComponent } from './Inicio/inicio.component';
@@ -49,7 +50,8 @@ import { HistorialComponent } from './Historial/historial.component';
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
   ],
   bootstrap: [AppComponent]
 })
