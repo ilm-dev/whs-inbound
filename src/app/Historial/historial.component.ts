@@ -21,12 +21,12 @@ export class HistorialComponent implements OnInit {
   displayedColumns: string[] = ['IdEntry', 'Entry', 'User', 'Vendor', 'SAP_PO', 'PCN', 'Unit', 'QTY', 'base_UoM', 'base_Qty', 'ACTIONS'];
   public dataSource = new MatTableDataSource();
   public idEntry: String='';
-
+  po:String='';
 
 
   @ViewChild(MatPaginator, { static: true })
     paginator!: MatPaginator;
-  constructor(public apiruta:ApiRuta,private http: HttpClient, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
+  constructor(public apiruta:ApiRuta,private http: HttpClient) { }
   ngOnInit() {
     this.CargarTabla();
     this.dataSource.paginator = this.paginator;
@@ -34,8 +34,12 @@ export class HistorialComponent implements OnInit {
 
   CargarTabla()
   {
-
     var url= this.apiruta.serverUrl+'api/Entries';
+
+    if(this.po == '')
+      url= this.apiruta.serverUrl+'api/Entries?Id'+this.po;
+    
+    
     this.http.get(url).toPromise().then((data: any) =>{
       if (data.result === 0){
         this.dataSource=data.data;
