@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule} from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -23,6 +23,7 @@ import { InicioComponent } from './Inicio/inicio.component';
 import { NotfoundComponent } from './NotFound/notfound.component';
 import { EntrancesMaterialComponent } from './Group1/entrances-material.component';
 import { HistorialComponent } from './Historial/historial.component';
+import { ModuloComponent } from './Modulo2/modulo.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HistorialComponent } from './Historial/historial.component';
     InicioComponent,
     NotfoundComponent,
     EntrancesMaterialComponent,
-    HistorialComponent
+    HistorialComponent,
+    ModuloComponent
   ],
   imports: [
     BrowserModule,

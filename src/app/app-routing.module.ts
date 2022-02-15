@@ -5,6 +5,7 @@ import { InicioComponent } from './Inicio/inicio.component';
 import { NotfoundComponent } from './NotFound/notfound.component';
 import { EntrancesMaterialComponent } from './Group1/entrances-material.component';
 import { HistorialComponent } from './Historial/historial.component';
+import { ModuloComponent } from './Modulo2/modulo.component';
 
 const routes: Routes = [
   {path : '', redirectTo: '/inicio', pathMatch: 'full'},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path : 'menu', component:MenuComponent},
   {path : 'inbound01', component:EntrancesMaterialComponent},
   {path : 'historial', component:HistorialComponent},
+  {path : 'modulo', component:ModuloComponent},
   {path : '**', component:NotfoundComponent}
 ];
 
