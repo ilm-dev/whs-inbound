@@ -3,14 +3,11 @@
     <mat-card-header>
         <img mat-card-avatar src="assets/entrances-icon2.jpg">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <mat-card-title class="d-none d-sm-block">Material Entrance</mat-card-title>
-        <mat-card-subtitle class="d-none d-sm-block">Material Entry to Warehouse &nbsp; 
-            <!-- <mat-slide-toggle
-                (change)="onChange($event)"></mat-slide-toggle> -->
+        <mat-card-title class="d-none d-sm-block">INBOUND ROLLS</mat-card-title>
+        <mat-card-subtitle class="d-none d-sm-block">Warehouse Inbound Mobile Device
         </mat-card-subtitle>
         <div class="d-block d-sm-none">
-            <!-- <mat-slide-toggle (change)="onChange($event)"></mat-slide-toggle>&nbsp;
-            <button mat-stroked-button color="primary" [routerLink]="['/signoff']">Sign Out</button> -->
+            <button mat-stroked-button color="primary" [routerLink]="['/signoff']">Sign Out</button>
         </div>
     </mat-card-header>
     <br>
@@ -18,98 +15,62 @@
         <div>
             <mat-form-field class="offset-md-1 col-md-10">
                 <mat-label>VENDOR</mat-label>
-                <!-- <input matInput id="Vendor" [(ngModel)]="Vendor" (keyup)="viewValidatorPallet($event);"
-                    placeholder="VENDOR" [formControl]="myControl" [matAutocomplete]="auto"
-                    [errorStateMatcher]="matcher" autocomplete="off" />
-                <mat-error *ngIf="myControl.hasError()">
-                    <strong>Vendor is Required</strong>
-                </mat-error>
-                <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.vendorName">
-                        {{option.vendorName}}
-                    </mat-option>
-                </mat-autocomplete> -->
+                <input matInput #_vendor id="Vendor" [formControl]="vendorControl" placeholder="VENDOR" 
+                (keyup)="_pallet.focus()" />
+                
             </mat-form-field>
         </div>
-        <div [hidden]="isShow">
+        <div >
             <mat-form-field class="offset-md-1 col-md-10">
                 <mat-label>PALLET</mat-label>
-                <!-- <input matInput id="Pallet" [(ngModel)]="Pallet" placeholder="PALLET"
-                    onkeypress="if (event.which==13) document.getElementById('SAP_PO').click()"
-                    [formControl]="palletFormControl" [errorStateMatcher]="matcher" autocomplete="off" />
-                <mat-error *ngIf="palletFormControl.hasError('required')">
-                    PALLET is <strong>Required</strong>
-                </mat-error> -->
+                <input matInput #_pallet id="PalletNo" [formControl]="palletControl" placeholder="NO PALLET"
+                (keyup)="_po.focus()" />
+                
             </mat-form-field>
         </div>
         <div>
             <mat-form-field class="offset-md-1 col-md-10">
                 <mat-label>SAP PO</mat-label>
-                <!-- <input matInput id="SAP_PO" [(ngModel)]="SAP_PO"
-                    onkeypress="if (event.which==13) document.getElementById('PCN').click()" placeholder="SAP PO"
-                    [formControl]="sap_poFormControl" [errorStateMatcher]="matcher" autocomplete="off" />
-                <mat-error *ngIf="sap_poFormControl.hasError('required')">
-                    <strong>SAP PO is Required</strong>
-                </mat-error> -->
+                <input matInput #_po id="purchasingOrder" [formControl]="poControl" placeholder="PURCHASING ORDER" 
+                (keyup)="_pcnExt.focus()" />
+                
             </mat-form-field>
         </div>
         <div>
             <mat-form-field class="offset-md-1 col-md-10">
-                <mat-label>PART NO.</mat-label>
-                <!-- <input matInput id="PCN" [(ngModel)]="PCN" (keyup)="viewValidatorPCN($event);"
-                    [formControl]="pcnFormControl" [errorStateMatcher]="matcher" autocomplete="off" />
-                <mat-error *ngIf="pcnFormControl.hasError('required')">
-                    PCN is <strong>Invalid</strong>
-                </mat-error> -->
+                <mat-label>EXTERNAL PART NO.</mat-label>
+                <input matInput #_pcnExt id="PCN_EXTERNAL" [formControl]="pcnExtControl" placeholder="VENDOR PCN" 
+                (keyup)="_pcnInt.focus()" />
+                
             </mat-form-field>
         </div>
         <div>
             <mat-form-field class="offset-md-1 col-md-10">
-                <mat-label>ORDER UoM</mat-label>
-                <!-- <input matInput id="Unit" [(ngModel)]="Unit" class="Unit" placeholder="UNIT MEASURE"
-                    [formControl]="unitFormControl" [errorStateMatcher]="matcher" autocomplete="off" />
-                <mat-error *ngIf="unitFormControl.hasError('required')">
-                    <strong>Order UoM is Required</strong>
-                </mat-error> -->
+                <mat-label>INTERNAL PART NO.</mat-label>
+                <input matInput #_pcnInt id="PCN_INTERNAL" [formControl]="pcnIntControl" placeholder="ILM PCN" 
+                (keyup)="_qty.focus()" />
+                
             </mat-form-field>
         </div>
         <div>
             <mat-form-field class="offset-md-1 col-md-10">
-                <mat-label>ORDER QTY</mat-label>
-                <!-- <input matInput id="QTY" [(ngModel)]="QTY"
-                    onkeypress="if (event.which==13) document.getElementById('BaseUoM').click()" placeholder="QUANTITY"
-                    type="number" [formControl]="qtyFormControl" [errorStateMatcher]="matcher" autocomplete="off" />
-                <mat-error *ngIf="qtyFormControl.hasError('required')">
-                    <strong>Order Qty is Required</strong>
-                </mat-error> -->
+                <mat-label>QUANTITY</mat-label>
+                <input matInput #_qty id="Quantity" [formControl]="qtyControl" placeholder="QUANTITY" 
+                (keyup)="_printer.focus()" />
+               
             </mat-form-field>
         </div>
         <div>
-            <mat-form-field class="offset-md-1 col-md-10">
-                <mat-label>BASE UoM</mat-label>
-                <!-- <input matInput id="BaseUoM" [(ngModel)]="BaseUoM"
-                (keyup)="viewValidatorQTY($event);" placeholder="BASE UoM"
-                    [formControl]="BaseUoMFormControl" [errorStateMatcher]="matcher" autocomplete="off" />
-                <mat-error *ngIf="BaseUoMFormControl.hasError('required')">
-                    <strong>Base UoM is Required</strong>
-                </mat-error> -->
+            <mat-form-field class="offset-md-1 col-md-2">
+                <mat-label>Printer</mat-label>
+                <input matInput #_printer id="PrinterName" [formControl]="printerControl" placeholder="PRINTER" 
+                (keyup)="sendToPrint()" />
+               
             </mat-form-field>
         </div>
-        <div>
-            <mat-form-field class="offset-md-1 col-md-10">
-                <mat-label>BASE QTY</mat-label>
-                <!-- <input matInput id="BaseQTY" [(ngModel)]="BaseQTY" (keyup)="viewValidatorStatus($event)"
-                    placeholder="BASE QTY" type="number" [formControl]="BaseQTYFormControl"
-                    [errorStateMatcher]="matcher" autocomplete="off" />
-                <mat-error *ngIf="BaseQTYFormControl.hasError('required')">
-                    <strong>Base QTY is Required</strong>
-                </mat-error> -->
-            </mat-form-field>
-        </div>
-  
         <div class="form-group">
             <button type="button" id="btnEntrance" class="btn btn-primary offset-md-5 col-md-2"
-                (click)="verify()">Entrance Material</button>
+                (click)="sendToPrint()">Entrance Material</button>
         </div>
     </div>
 </mat-card>
